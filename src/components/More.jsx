@@ -36,17 +36,15 @@ export default function More() {
 			<div className="absolute top-5 left-5 flex gap-5">
 				<Link to="/">Back</Link>
 			</div>
-			<Tabs defaultValue="original" className="mt-16 lg:my-16">
-				<div className="w-full flex justify-center">
-					<TabsList className="mb-3 lg:mb-10">
-						<TabsTrigger value="original">原始版</TabsTrigger>
-						<TabsTrigger value="improved">優化版</TabsTrigger>
-					</TabsList>
-				</div>
-				<TabsContent value="original" className="flex justify-center">
+			<Tabs defaultValue="original" className="mt-16 lg:my-16 lg:mx-20">
+				<TabsList className="my-5 grid w-full grid-cols-2 lg:mb-5">
+					<TabsTrigger value="original">原始版</TabsTrigger>
+					<TabsTrigger value="improved">優化版</TabsTrigger>
+				</TabsList>
+				<TabsContent value="original">
 					<MoreOriginal />
 				</TabsContent>
-				<TabsContent value="improved" className="flex justify-center">
+				<TabsContent value="improved">
 					<MoreImproved />
 				</TabsContent>
 			</Tabs>
@@ -87,6 +85,7 @@ function MoreImproved() {
 											className="text-sm font-semibold leading-6 text-indigo-600"
 										>
 											查看更多 <span aria-hidden="true">→</span>
+											<span className="sr-only">關於{feature.name}的內容</span>
 										</a>
 									</p>
 								</dd>
@@ -105,7 +104,7 @@ function MoreOriginal() {
 			<div className="mx-auto bg-white max-w-7xl px-6 py-10 lg:px-8 lg:py-10 lg:rounded-xl">
 				<div className="mx-auto max-w-2xl lg:mx-0">
 					<h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-						專業服務原始版
+						專業服務
 					</h2>
 					<p className="mt-6 text-lg leading-8 text-gray-600">
 						我們致力於提供卓越的行銷服務，滿足客戶多樣化的需求。

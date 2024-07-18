@@ -52,17 +52,18 @@ export default function Cart() {
 			<div className="absolute top-5 left-5 flex gap-5">
 				<Link to="/">Back</Link>
 			</div>
-			<Tabs defaultValue="original" className="mt-16 lg:my-16">
-				<div className="w-full flex justify-center">
-					<TabsList className="mb-3 lg:mb-10">
-						<TabsTrigger value="original">原始版</TabsTrigger>
-						<TabsTrigger value="improved">優化版</TabsTrigger>
-					</TabsList>
-				</div>
-				<TabsContent value="original" className="flex justify-center">
+			<Tabs
+				defaultValue="original"
+				className="mt-16 lg:my-16 lg:w-[800px] lg:mx-auto"
+			>
+				<TabsList className="my-5 grid w-full grid-cols-2 lg:mb-5">
+					<TabsTrigger value="original">原始版</TabsTrigger>
+					<TabsTrigger value="improved">優化版</TabsTrigger>
+				</TabsList>
+				<TabsContent value="original">
 					<CartOriginal />
 				</TabsContent>
-				<TabsContent value="improved" className="flex justify-center">
+				<TabsContent value="improved">
 					<CartImproved />
 				</TabsContent>
 			</Tabs>
@@ -72,15 +73,15 @@ export default function Cart() {
 
 function CartImproved() {
 	return (
-		<div className="bg-white p-5 lg:w-[800px] lg:p-10 lg:rounded-xl">
+		<div className="bg-white p-5 lg:w-[800px] lg:p-10 lg:rounded-xl lg:mx-auto">
 			<h1 className="text-center text-2xl lg:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-				我的購物車 優化版
+				我的購物車
 			</h1>
 
 			<form className="mt-5 lg:mt-12">
 				<section aria-labelledby="cart-heading">
 					<h2 id="cart-heading" className="sr-only">
-						Items in your shopping cart
+						購物車商品列表
 					</h2>
 
 					<ul
@@ -148,6 +149,7 @@ function CartImproved() {
 												className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
 											>
 												<span>移除</span>
+												<span className="sr-only">{product.name}</span>
 											</button>
 										</div>
 									</div>
@@ -160,6 +162,7 @@ function CartImproved() {
 											className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
 										>
 											<span>移除</span>
+											<span className="sr-only">{product.name}</span>
 										</button>
 									</div>
 								</div>
@@ -171,7 +174,7 @@ function CartImproved() {
 				{/* Order summary */}
 				<section aria-labelledby="summary-heading" className="mt-10">
 					<h2 id="summary-heading" className="sr-only">
-						Order summary
+						購物明細
 					</h2>
 
 					<div>
@@ -206,15 +209,15 @@ function CartImproved() {
 
 function CartOriginal() {
 	return (
-		<div className="bg-white p-5 lg:w-[800px] lg:p-10 lg:rounded-xl">
+		<div className="bg-white p-5 lg:w-[800px] lg:p-10 lg:rounded-xl lg:mx-auto">
 			<h1 className="text-center text-2xl lg:text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-				我的購物車 原始版
+				我的購物車
 			</h1>
 
 			<form className="mt-5 lg:mt-12">
 				<section aria-labelledby="cart-heading">
 					<h2 id="cart-heading" className="sr-only">
-						Items in your shopping cart
+						購物車商品列表
 					</h2>
 
 					<ul
@@ -305,7 +308,7 @@ function CartOriginal() {
 				{/* Order summary */}
 				<section aria-labelledby="summary-heading" className="mt-10">
 					<h2 id="summary-heading" className="sr-only">
-						Order summary
+						購物明細
 					</h2>
 
 					<div>

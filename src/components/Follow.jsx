@@ -57,17 +57,18 @@ export default function Follow() {
 			<div className="absolute top-5 left-5 flex gap-5">
 				<Link to="/">Back</Link>
 			</div>
-			<Tabs defaultValue="original" className="mt-16 lg:my-16">
-				<div className="w-full flex justify-center">
-					<TabsList className="mb-3 lg:mb-10">
-						<TabsTrigger value="original">原始版</TabsTrigger>
-						<TabsTrigger value="improved">優化版</TabsTrigger>
-					</TabsList>
-				</div>
-				<TabsContent value="original" className="flex justify-center">
+			<Tabs
+				defaultValue="original"
+				className="mt-16 lg:my-16 lg:w-[500px] lg:mx-auto"
+			>
+				<TabsList className="my-5 grid w-full grid-cols-2 lg:mb-5">
+					<TabsTrigger value="original">原始版</TabsTrigger>
+					<TabsTrigger value="improved">優化版</TabsTrigger>
+				</TabsList>
+				<TabsContent value="original">
 					<FollowOriginal />
 				</TabsContent>
-				<TabsContent value="improved" className="flex justify-center">
+				<TabsContent value="improved">
 					<FollowImproved />
 				</TabsContent>
 			</Tabs>
@@ -112,6 +113,11 @@ function FollowImproved() {
 									}
 								)}
 							>
+								{isFollowed ? (
+									<span className="sr-only">取消追蹤{person.name}</span>
+								) : (
+									<span className="sr-only">追蹤{person.name}</span>
+								)}
 								{isFollowed ? <FollowedIcon /> : <FollowIcon />}
 							</button>
 						</div>
@@ -165,6 +171,11 @@ function FollowOriginal() {
 									}
 								)}
 							>
+								{isFollowed ? (
+									<span className="sr-only">已追蹤{person.name}</span>
+								) : (
+									<span className="sr-only">追蹤{person.name}</span>
+								)}
 								{isFollowed ? <FollowedIcon /> : <FollowIcon />}
 							</button>
 						</div>
