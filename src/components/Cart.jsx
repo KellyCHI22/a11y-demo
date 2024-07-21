@@ -1,6 +1,7 @@
 import { CheckIcon, ClockIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
+import { useTitle } from "../utils";
 
 const products = [
 	{
@@ -47,6 +48,7 @@ const total = products.reduce((total, item) => {
 }, 0);
 
 export default function Cart() {
+	useTitle("我的購物車 | A11y Demo");
 	return (
 		<div className="container mx-auto">
 			<div className="absolute top-5 left-5 flex gap-5">
@@ -101,14 +103,14 @@ function CartImproved() {
 								<div className="ml-4 flex flex-1 flex-col sm:ml-6">
 									<div>
 										<div className="flex justify-between">
-											<h4 className="text-sm">
+											<h3 className="text-sm">
 												<a
 													href={product.href}
 													className="font-medium text-gray-700 hover:text-gray-800"
 												>
 													{product.name}
 												</a>
-											</h4>
+											</h3>
 											<p className="hidden lg:block ml-4 text-sm font-bold text-gray-900">
 												NTD {product.price}
 											</p>

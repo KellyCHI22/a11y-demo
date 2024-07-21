@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
+import { useTitle } from "../utils";
 
 export default function Heading() {
+	useTitle("定位點 | A11y Demo");
 	return (
 		<div className="container mx-auto">
 			<div className="absolute top-5 left-5 flex gap-5">
@@ -165,6 +167,7 @@ function HeadingOriginal() {
 							Initiative(WAI)組織訂定的網站無障礙內容相關標準，並參照各國在制定網站無障礙相關政策和推廣策略的做法，及國內近年來在身心障礙者保護政策、無障礙空間的推動、視覺障礙者在無障礙網路相關措施的努力等經驗所訂定。
 						</p>
 					</div>
+					{/* todo 改成用 javascript */}
 					<a href="#" className="underline text-indigo-500 self-end">
 						參考連結 →
 					</a>

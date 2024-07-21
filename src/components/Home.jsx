@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTitle } from "../utils";
 
 const pages = [
 	{ to: "/cart", text: "我的購物車" },
@@ -9,10 +10,13 @@ const pages = [
 ];
 
 export default function Home() {
+	useTitle("A11y Demo");
 	return (
 		<div className="px-5 grid place-items-center h-screen w-screen lg:px-0">
 			<div>
-				<h1 className="text-5xl">A11y Demo</h1>
+				<h1 className="text-5xl" tabIndex="-1">
+					A11y Demo
+				</h1>
 				<ul className="my-10 flex flex-col gap-3 lg:gap-0 lg:flex-row">
 					{pages.map((page, index) => (
 						<li key={page.to}>

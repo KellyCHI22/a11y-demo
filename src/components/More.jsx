@@ -5,6 +5,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
+import { useTitle } from "../utils";
 
 const features = [
 	{
@@ -31,9 +32,11 @@ const features = [
 ];
 
 export default function More() {
+	useTitle("查看更多 | A11y Demo");
 	return (
 		<div className="container mx-auto">
 			<div className="absolute top-5 left-5 flex gap-5">
+				{/* 改回首頁 */}
 				<Link to="/">Back</Link>
 			</div>
 			<Tabs defaultValue="original" className="mt-16 lg:my-16 lg:mx-20">

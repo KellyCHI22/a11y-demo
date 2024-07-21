@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { EnvelopeIcon } from "@heroicons/react/24/outline";
-import { cn } from "../utils";
+import { cn, useTitle } from "../utils";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
 
 const person = {
@@ -52,6 +52,7 @@ const FollowedIcon = () => (
 );
 
 export default function Follow() {
+	useTitle("追蹤/取消追蹤 | A11y Demo");
 	return (
 		<div className="container mx-auto">
 			<div className="absolute top-5 left-5 flex gap-5">
@@ -81,6 +82,9 @@ function FollowImproved() {
 	const handleFollowClick = () => setIsFollowed(!isFollowed);
 	return (
 		<div className="container mx-auto flex flex-col items-center">
+			<div aria-live="polite" className="sr-only">
+				{isFollowed ? `已追蹤${person.name}` : `已取消追蹤${person.name}`}
+			</div>
 			<div className="lg:w-[500px] lg:my-auto flex flex-col items-center divide-y divide-gray-200 lg:rounded-lg overflow-hidden bg-white text-center shadow">
 				<div className="flex p-5 lg:p-8 w-full">
 					<img
@@ -105,6 +109,7 @@ function FollowImproved() {
 							</a>
 							<button
 								onClick={handleFollowClick}
+								aria-describedby="button-description"
 								className={cn(
 									"mt-5 inline-flex items-center justify-center gap-x-3 rounded-full border border-transparent py-2 text-sm font-semibold text-white px-2 bg-indigo-500 hover:bg-indigo-600",
 									{
@@ -114,12 +119,17 @@ function FollowImproved() {
 								)}
 							>
 								{isFollowed ? (
-									<span className="sr-only">取消追蹤{person.name}</span>
+									<span className="sr-only">取消追蹤</span>
 								) : (
-									<span className="sr-only">追蹤{person.name}</span>
+									<span className="sr-only">追蹤</span>
 								)}
 								{isFollowed ? <FollowedIcon /> : <FollowIcon />}
 							</button>
+							<span id="button-description" className="sr-only">
+								{isFollowed
+									? `按下按鈕可取消追蹤${person.name}`
+									: `按下按鈕可追蹤${person.name}`}
+							</span>
 						</div>
 					</div>
 				</div>
@@ -172,9 +182,9 @@ function FollowOriginal() {
 								)}
 							>
 								{isFollowed ? (
-									<span className="sr-only">已追蹤{person.name}</span>
+									<span className="sr-only">已追蹤</span>
 								) : (
-									<span className="sr-only">追蹤{person.name}</span>
+									<span className="sr-only">追蹤</span>
 								)}
 								{isFollowed ? <FollowedIcon /> : <FollowIcon />}
 							</button>
