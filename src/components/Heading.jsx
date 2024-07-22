@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
 import { useTitle } from "../utils";
@@ -8,7 +7,7 @@ export default function Heading() {
 	return (
 		<div className="container mx-auto">
 			<div className="absolute top-5 left-5 flex gap-5">
-				<Link to="/">Back</Link>
+				<Link to="/">返回首頁</Link>
 			</div>
 			<Tabs
 				defaultValue="original"

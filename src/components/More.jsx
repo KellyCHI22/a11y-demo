@@ -37,7 +37,7 @@ export default function More() {
 		<div className="container mx-auto">
 			<div className="absolute top-5 left-5 flex gap-5">
 				{/* 改回首頁 */}
-				<Link to="/">Back</Link>
+				<Link to="/">返回首頁</Link>
 			</div>
 			<Tabs defaultValue="original" className="mt-16 lg:my-16 lg:mx-20">
 				<TabsList className="my-5 grid w-full grid-cols-2 lg:mb-5">

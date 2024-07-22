@@ -7,6 +7,7 @@ const pages = [
 	{ to: "/more", text: "查看更多" },
 	{ to: "/follow", text: "追蹤/取消追蹤" },
 	{ to: "/heading", text: "定位點" },
+	{ to: "/table", text: "表格" },
 ];
 
 export default function Home() {

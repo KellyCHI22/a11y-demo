@@ -56,7 +56,7 @@ export default function Follow() {
 	return (
 		<div className="container mx-auto">
 			<div className="absolute top-5 left-5 flex gap-5">
-				<Link to="/">Back</Link>
+				<Link to="/">返回首頁</Link>
 			</div>
 			<Tabs
 				defaultValue="original"
