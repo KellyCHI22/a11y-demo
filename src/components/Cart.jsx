@@ -239,14 +239,14 @@ function CartOriginal() {
 								<div className="ml-4 flex flex-1 flex-col sm:ml-6">
 									<div>
 										<div className="flex justify-between">
-											<h4 className="text-sm">
+											<h3 className="text-sm">
 												<a
 													href={product.href}
 													className="font-medium text-gray-700 hover:text-gray-800"
 												>
 													{product.name}
 												</a>
-											</h4>
+											</h3>
 											<p className="hidden lg:block ml-4 text-sm font-bold text-gray-900">
 												NTD {product.price}
 											</p>
