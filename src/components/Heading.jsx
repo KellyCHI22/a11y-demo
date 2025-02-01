@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
 import { useTitle } from "../utils";
 
@@ -33,93 +35,63 @@ function HeadingImproved() {
 		<div className="container mx-auto min-h-screen flex flex-col items-center">
 			<div className="bg-white lg:w-[1000px] text-black p-5 lg:p-10 lg:rounded-xl space-y-5">
 				<h1 className="text-2xl font-bold text-center my-5">
-					網站無障礙規範2.0版
+					網站無障礙規範十三指引
 				</h1>
-				<div className="flex flex-col justify-start">
-					<h2 className="text-xl font-bold my-2">前言</h2>
+				<div className="flex flex-col justify-start space-y-2">
+					<h2 className="text-xl font-bold">指引1.1：替代文字</h2>
 					<p>
-						本規範的規劃和訂定主要是參考 W3C (World Wide Web Consortium) 協會的
-						Web Accessibility Initiative (WAI)
-						組織訂定的網站無障礙內容相關標準，並參照各國在制定網站無障礙相關政策和推廣策略的做法，及國內近年來在身心障礙者保護政策、無障礙空間的推動、視覺障礙者在無障礙網路相關措施的努力等經驗所訂定。
+						為任何非文字的內容提供相等意義的替代文字，使這些內容能依人們的需求，轉變成大字版、點字、語音、符號或簡化過的語言等不同型態。
 					</p>
+					<DisclosureImproved
+						title="展開說明"
+						content="本指引的目的是要確保所有非文字的內容也都有文字的版本。這裡的「文字」指的是電子文字，而非影像文字。電子文字有著呈現方式中立的獨特優勢，也就是說可以以視覺化、聽覺化、觸覺化等不同方式加以表達，也可同時合用多種表達方式來呈現。因此以電子文字呈現的資訊就可以用任何最適合使用者的方式來呈現。這樣的內容可以很容易地放大、報讀出來讓有閱讀障礙的使用者也能便於理解，或者以任何觸覺的方式呈現來滿足使用者的需求。"
+					/>
 					<a href="#" className="underline text-indigo-500 self-end">
 						參考連結 →
 					</a>
 				</div>
-				<div className="flex flex-col justify-start space-y-3">
-					<h2 className="text-xl font-bold my-2">網站無障礙設計準則與程序</h2>
-					<div>
-						<h3 className="text-lg font-semibold my-2">
-							一、網站無障礙可及性設計原則
-						</h3>
-						<p>
-							網站開發人員在規劃網站的架構、資源內容的整理和呈現的處理、網頁相關技術的取捨等相關因素時，應該依循本規範的
-							4
-							原則主軸辦理。每一原則下各有若干指引，用以闡釋該原則。讓網站開發人員能夠對網站開發在可及性設計的考慮上有明確的遵循實例，並使檢測有所依據。
-						</p>
-					</div>
-					<div>
-						<h3 className="text-lg font-semibold my-2">
-							二、網站無障礙設計程序
-						</h3>
-						<p>
-							本規範的規劃和訂定主要是參考W3C(World Wide Web Consortium)協會的
-							Web Accessibility
-							Initiative(WAI)組織訂定的網站無障礙內容相關標準，並參照各國在制定網站無障礙相關政策和推廣策略的做法，及國內近年來在身心障礙者保護政策、無障礙空間的推動、視覺障礙者在無障礙網路相關措施的努力等經驗所訂定。
-						</p>
-					</div>
+				<div className="flex flex-col justify-start space-y-2">
+					<h2 className="text-xl font-bold">指引1.2：時序媒體</h2>
+					<p>針對時序媒體提供替代內容。</p>
+					<DisclosureImproved
+						title="展開說明"
+						content={
+							<>
+								本指引的目的是要提供取用時序媒體及同步媒體的能力。這項指引所囊括的媒體包括：
+								<ul className="list-disc">
+									<li className="translate-x-4">純音訊</li>
+									<li className="translate-x-4">純視訊</li>
+									<li className="translate-x-4">視訊及音訊</li>
+									<li className="translate-x-4"> 結合互動的視訊和音訊</li>
+								</ul>
+							</>
+						}
+					/>
 					<a href="#" className="underline text-indigo-500 self-end">
 						參考連結 →
 					</a>
 				</div>
-				<div className="flex flex-col justify-start">
-					<h2 className="text-xl font-bold my-3">檢測等級</h2>
-					<ol className="space-y-2">
-						<li>一、檢測等級 A</li>
-						<li>二、檢測等級 AA</li>
-						<li>三、檢測等級 AAA</li>{" "}
-					</ol>
-					<a href="#" className="underline text-indigo-500 self-end">
-						參考連結 →
-					</a>
-				</div>
-				<div className="flex flex-col justify-start">
-					<h2 className="text-xl font-bold my-2">四原則</h2>
+				<div className="flex flex-col justify-start space-y-2">
+					<h2 className="text-xl font-bold">指引1.3：可調適</h2>
 					<p>
-						本規範係基於以下 4 原則架構而成，這 4
-						原則鋪陳著任何使用者想要取用網頁內容所必要的基礎。任何人想使用之網頁內容是：
+						建立能以不同方式呈現(例如簡化的版面)，而不會喪失資訊或結構的內容。
 					</p>
-					<ol className="space-y-3 mt-2">
-						<li>
-							<p className="font-bold text-lg my-2">原則1：可感知</p>
-							<p>
-								資訊及使用者介面元件應以使用者能察覺之方式呈現使用者一定要能察覺呈現出來的資訊（也就是資訊不能對使用者所有的感官均無形）。用以闡釋此原則所設置的指引包括了指引
-								1、2、3、4。
-							</p>
-						</li>
-						<li>
-							<p className="font-bold text-lg my-2">原則2：可操作</p>
-							<p>
-								使用者介面元件及導覽功能應具可操作性使用者一定要能夠操作介面（介面不能要求使用者無法執行的互動方式）。用以闡釋此原則所設置的指引包括了指引
-								5、6、7、8。
-							</p>
-						</li>
-						<li>
-							<p className="font-bold text-lg my-2">原則3：可理解</p>
-							<p>
-								資訊及使用者介面之操作應具可理解性使用者一定要能夠明白資訊及使用者介面的操作（亦即內容及操作皆不能超出使用者的理解能力）。用以闡釋此原則所設置的指引包括了指引
-								9、10、11。
-							</p>
-						</li>
-						<li>
-							<p className="font-bold text-lg my-2">原則4：穩健性</p>
-							<p>
-								網頁內容應可供身心障礙者以輔助工具讀取，並具有相容性隨著科技進步，使用者一定要能取用內容（也就是說當科技及使用者代理演進後，內容仍應保有可及性）。用以闡釋此原則設置指引
-								12。
-							</p>
-						</li>
-					</ol>
-					<a href="#" className="underline text-indigo-500 self-end mt-3">
+					<DisclosureImproved
+						title="展開說明"
+						content="本指引的目的在確保所有的資訊都有所有使用者可感知的形式，像是報讀出來或以較簡單的視覺布局呈現。如果所有的資訊都有軟體可判別的形式，就可以用不同的方式如視覺性、聽覺性、觸覺性等方式呈現給使用者。如果資訊嵌入在特定的呈現方式中，而其結構與資訊無法由輔助科技以程式化的方式來判讀，那麼就無法以使用者所需的其他形式來呈現。本指引下的所有成功準則都是要確保可使用在呈現中常見編碼的不同資訊類型，而能以不同的型態來表達。"
+					/>
+					<a href="#" className="underline text-indigo-500 self-end">
+						參考連結 →
+					</a>
+				</div>
+				<div className="flex flex-col justify-start space-y-2">
+					<h2 className="text-xl font-bold">指引1.4：可辨識</h2>
+					<p>讓使用者能更容易地看見及聽到內容、區分前景和背景。</p>
+					<DisclosureImproved
+						title="展開說明"
+						content="有些指引著重在使資訊能有可以替代格式來呈現，本指引則是想讓預設的呈現方式能讓有障礙的使用者也能容易感知。使這件事容易的主要焦點在於讓使用者能容易地將前景資訊從背景當中分出來。就視覺呈現來說，這牽涉到確保背景上的前景資訊能有充足的對比；就聽覺呈現來說，這牽涉到確保背景聲音中的前景資訊能有夠大的音量。網頁設計者應留意到：視力障礙者和聽力障礙者要從背景中分離出前景資訊時，會比其他人更為困難。"
+					/>
+					<a href="#" className="underline text-indigo-500 self-end">
 						參考連結 →
 					</a>
 				</div>
@@ -133,96 +105,106 @@ function HeadingOriginal() {
 		<div className="container mx-auto min-h-screen flex flex-col items-center">
 			<div className="bg-white lg:w-[1000px] text-black p-5 lg:p-10 lg:rounded-xl space-y-5">
 				<p className="text-2xl font-bold text-center my-5">
-					網站無障礙規範2.0版
+					網站無障礙規範十三指引
 				</p>
-				<div className="flex flex-col justify-start">
-					<p className="text-xl font-bold my-2">前言</p>
+				<div className="flex flex-col justify-start space-y-2">
+					<p className="text-xl font-bold">指引1.1：替代文字</p>
 					<p>
-						本規範的規劃和訂定主要是參考 W3C (World Wide Web Consortium) 協會的
-						Web Accessibility Initiative (WAI)
-						組織訂定的網站無障礙內容相關標準，並參照各國在制定網站無障礙相關政策和推廣策略的做法，及國內近年來在身心障礙者保護政策、無障礙空間的推動、視覺障礙者在無障礙網路相關措施的努力等經驗所訂定。
+						為任何非文字的內容提供相等意義的替代文字，使這些內容能依人們的需求，轉變成大字版、點字、語音、符號或簡化過的語言等不同型態。
 					</p>
+					<DisclosureOriginal
+						title="展開說明"
+						content="本指引的目的是要確保所有非文字的內容也都有文字的版本。這裡的「文字」指的是電子文字，而非影像文字。電子文字有著呈現方式中立的獨特優勢，也就是說可以以視覺化、聽覺化、觸覺化等不同方式加以表達，也可同時合用多種表達方式來呈現。因此以電子文字呈現的資訊就可以用任何最適合使用者的方式來呈現。這樣的內容可以很容易地放大、報讀出來讓有閱讀障礙的使用者也能便於理解，或者以任何觸覺的方式呈現來滿足使用者的需求。"
+					/>
 					<a href="#" className="underline text-indigo-500 self-end">
 						參考連結 →
 					</a>
 				</div>
-				<div className="flex flex-col justify-start space-y-3">
-					<p className="text-xl font-bold my-2">網站無障礙設計準則與程序</p>
-					<div>
-						<p className="text-lg font-semibold my-2">
-							一、網站無障礙可及性設計原則
-						</p>
-						<p>
-							網站開發人員在規劃網站的架構、資源內容的整理和呈現的處理、網頁相關技術的取捨等相關因素時，應該依循本規範的
-							4
-							原則主軸辦理。每一原則下各有若干指引，用以闡釋該原則。讓網站開發人員能夠對網站開發在可及性設計的考慮上有明確的遵循實例，並使檢測有所依據。
-						</p>
-					</div>
-					<div>
-						<p className="text-lg font-semibold my-2">二、網站無障礙設計程序</p>
-						<p>
-							本規範的規劃和訂定主要是參考W3C(World Wide Web Consortium)協會的
-							Web Accessibility
-							Initiative(WAI)組織訂定的網站無障礙內容相關標準，並參照各國在制定網站無障礙相關政策和推廣策略的做法，及國內近年來在身心障礙者保護政策、無障礙空間的推動、視覺障礙者在無障礙網路相關措施的努力等經驗所訂定。
-						</p>
-					</div>
-					{/* todo 改成用 javascript */}
+				<div className="flex flex-col justify-start space-y-2">
+					<p className="text-xl font-bold">指引1.2：時序媒體</p>
+					<p>針對時序媒體提供替代內容。</p>
+					<DisclosureOriginal
+						title="展開說明"
+						content={
+							<>
+								本指引的目的是要提供取用時序媒體及同步媒體的能力。這項指引所囊括的媒體包括：
+								<ul className="list-disc">
+									<li className="translate-x-4">純音訊</li>
+									<li className="translate-x-4">純視訊</li>
+									<li className="translate-x-4">視訊及音訊</li>
+									<li className="translate-x-4"> 結合互動的視訊和音訊</li>
+								</ul>
+							</>
+						}
+					/>
 					<a href="#" className="underline text-indigo-500 self-end">
 						參考連結 →
 					</a>
 				</div>
-				<div className="flex flex-col justify-start">
-					<p className="text-xl font-bold my-3">檢測等級</p>
-					<div className="space-y-2 flex flex-col">
-						<span>一、檢測等級 A</span>
-						<span>二、檢測等級 AA</span>
-						<span>三、檢測等級 AAA</span>
-					</div>
-					<a href="#" className="underline text-indigo-500 self-end">
-						參考連結 →
-					</a>
-				</div>
-				<div className="flex flex-col justify-start">
-					<p className="text-xl font-bold my-2">四原則</p>
+				<div className="flex flex-col justify-start space-y-2">
+					<p className="text-xl font-bold">指引1.3：可調適</p>
 					<p>
-						本規範係基於以下 4 原則架構而成，這 4
-						原則鋪陳著任何使用者想要取用網頁內容所必要的基礎。任何人想使用之網頁內容是：
+						建立能以不同方式呈現(例如簡化的版面)，而不會喪失資訊或結構的內容。
 					</p>
-					<div className="space-y-3 mt-2">
-						<span>
-							<p className="font-bold text-lg my-2">原則1：可感知</p>
-							<p>
-								資訊及使用者介面元件應以使用者能察覺之方式呈現使用者一定要能察覺呈現出來的資訊（也就是資訊不能對使用者所有的感官均無形）。用以闡釋此原則所設置的指引包括了指引
-								1、2、3、4。
-							</p>
-						</span>
-						<span>
-							<p className="font-bold text-lg my-2">原則2：可操作</p>
-							<p>
-								使用者介面元件及導覽功能應具可操作性使用者一定要能夠操作介面（介面不能要求使用者無法執行的互動方式）。用以闡釋此原則所設置的指引包括了指引
-								5、6、7、8。
-							</p>
-						</span>
-						<span>
-							<p className="font-bold text-lg my-2">原則3：可理解</p>
-							<p>
-								資訊及使用者介面之操作應具可理解性使用者一定要能夠明白資訊及使用者介面的操作（亦即內容及操作皆不能超出使用者的理解能力）。用以闡釋此原則所設置的指引包括了指引
-								9、10、11。
-							</p>
-						</span>
-						<span>
-							<p className="font-bold text-lg my-2">原則4：穩健性</p>
-							<p>
-								網頁內容應可供身心障礙者以輔助工具讀取，並具有相容性隨著科技進步，使用者一定要能取用內容（也就是說當科技及使用者代理演進後，內容仍應保有可及性）。用以闡釋此原則設置指引
-								12。
-							</p>
-						</span>
-					</div>
-					<a href="#" className="underline text-indigo-500 self-end mt-3">
+					<DisclosureOriginal
+						title="展開說明"
+						content="本指引的目的在確保所有的資訊都有所有使用者可感知的形式，像是報讀出來或以較簡單的視覺布局呈現。如果所有的資訊都有軟體可判別的形式，就可以用不同的方式如視覺性、聽覺性、觸覺性等方式呈現給使用者。如果資訊嵌入在特定的呈現方式中，而其結構與資訊無法由輔助科技以程式化的方式來判讀，那麼就無法以使用者所需的其他形式來呈現。本指引下的所有成功準則都是要確保可使用在呈現中常見編碼的不同資訊類型，而能以不同的型態來表達。"
+					/>
+					<a href="#" className="underline text-indigo-500 self-end">
+						參考連結 →
+					</a>
+				</div>
+				<div className="flex flex-col justify-start space-y-2">
+					<p className="text-xl font-bold">指引1.4：可辨識</p>
+					<p>讓使用者能更容易地看見及聽到內容、區分前景和背景。</p>
+					<DisclosureOriginal
+						title="展開說明"
+						content="有些指引著重在使資訊能有可以替代格式來呈現，本指引則是想讓預設的呈現方式能讓有障礙的使用者也能容易感知。使這件事容易的主要焦點在於讓使用者能容易地將前景資訊從背景當中分出來。就視覺呈現來說，這牽涉到確保背景上的前景資訊能有充足的對比；就聽覺呈現來說，這牽涉到確保背景聲音中的前景資訊能有夠大的音量。網頁設計者應留意到：視力障礙者和聽力障礙者要從背景中分離出前景資訊時，會比其他人更為困難。"
+					/>
+					<a href="#" className="underline text-indigo-500 self-end">
 						參考連結 →
 					</a>
 				</div>
 			</div>
 		</div>
+	);
+}
+
+function DisclosureOriginal({ title, content }) {
+	const [isOpen, setIsOpen] = useState(false);
+	const openDisclosure = () => setIsOpen(!isOpen);
+
+	return (
+		<>
+			<div
+				onClick={openDisclosure}
+				className="w-fit p-2 bg-zinc-700 text-white rounded-md inline-flex"
+			>
+				{title}
+				{isOpen ? <ChevronDown /> : <ChevronRight />}
+			</div>
+			{isOpen && <div>{content}</div>}
+		</>
+	);
+}
+
+function DisclosureImproved({ title, content }) {
+	const [isOpen, setIsOpen] = useState(false);
+	const openDisclosure = () => setIsOpen(!isOpen);
+
+	return (
+		<>
+			<button
+				onClick={openDisclosure}
+				type="button"
+				aria-expanded={isOpen ? "true" : "false"}
+				aria-controls={`${title}_desc`}
+				className="w-fit p-2 bg-zinc-700 text-white rounded-md inline-flex"
+			>
+				{title}
+				{isOpen ? <ChevronDown aria-hidden /> : <ChevronRight aria-hidden />}
+			</button>
+			{isOpen && <div id={`${title}_desc`}>{content}</div>}
+		</>
 	);
 }
