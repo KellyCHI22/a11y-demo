@@ -48,6 +48,8 @@ function HeadingImproved() {
 					/>
 					<a
 						href="https://www.w3.org/TR/WCAG22/#text-alternatives"
+						title="開啟新視窗"
+						target="_blank"
 						className="underline text-indigo-500 self-end"
 					>
 						參考連結 →
@@ -72,6 +74,8 @@ function HeadingImproved() {
 					/>
 					<a
 						href="https://www.w3.org/TR/WCAG22/#time-based-media"
+						title="開啟新視窗"
+						target="_blank"
 						className="underline text-indigo-500 self-end"
 					>
 						參考連結 →
@@ -88,6 +92,8 @@ function HeadingImproved() {
 					/>
 					<a
 						href="https://www.w3.org/TR/WCAG22/#adaptable"
+						title="開啟新視窗"
+						target="_blank"
 						className="underline text-indigo-500 self-end"
 					>
 						參考連結 →
@@ -102,6 +108,8 @@ function HeadingImproved() {
 					/>
 					<a
 						href="https://www.w3.org/TR/WCAG22/#distinguishable"
+						title="開啟新視窗"
+						target="_blank"
 						className="underline text-indigo-500 self-end"
 					>
 						參考連結 →
@@ -130,6 +138,7 @@ function HeadingOriginal() {
 					/>
 					<a
 						href="https://www.w3.org/TR/WCAG22/#text-alternatives"
+						target="_blank"
 						className="underline text-indigo-500 self-end"
 					>
 						參考連結 →
@@ -154,6 +163,7 @@ function HeadingOriginal() {
 					/>
 					<a
 						href="https://www.w3.org/TR/WCAG22/#time-based-media"
+						target="_blank"
 						className="underline text-indigo-500 self-end"
 					>
 						參考連結 →
@@ -170,6 +180,7 @@ function HeadingOriginal() {
 					/>
 					<a
 						href="https://www.w3.org/TR/WCAG22/#adaptable"
+						target="_blank"
 						className="underline text-indigo-500 self-end"
 					>
 						參考連結 →
@@ -184,6 +195,7 @@ function HeadingOriginal() {
 					/>
 					<a
 						href="https://www.w3.org/TR/WCAG22/#distinguishable"
+						target="_blank"
 						className="underline text-indigo-500 self-end"
 					>
 						參考連結 →
