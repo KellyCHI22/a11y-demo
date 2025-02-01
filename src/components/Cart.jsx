@@ -13,7 +13,7 @@ const products = [
 		size: "Medium",
 		inStock: true,
 		imageSrc:
-			"https://tailwindui.com/img/ecommerce-images/checkout-page-03-product-04.jpg",
+			"https://tailwindui.com/plus/img/ecommerce-images/checkout-page-03-product-04.jpg",
 		imageAlt: "薄荷色藝術印花 T-shirt 正面",
 	},
 	{
@@ -26,7 +26,7 @@ const products = [
 		leadTime: "2-3",
 		size: "Large",
 		imageSrc:
-			"https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-02.jpg",
+			"https://tailwindui.com/plus/img/ecommerce-images/shopping-cart-page-01-product-02.jpg",
 		imageAlt: "黑色基本款 T-shirt 正面",
 	},
 	{
@@ -37,7 +37,7 @@ const products = [
 		color: "米白色",
 		inStock: true,
 		imageSrc:
-			"https://tailwindui.com/img/ecommerce-images/shopping-cart-page-01-product-03.jpg",
+			"https://tailwindui.com/plus/img/ecommerce-images/shopping-cart-page-01-product-03.jpg",
 		imageAlt: "米白色質感水壺，壺口周圍有黑色塗料設計",
 	},
 	// More products...
