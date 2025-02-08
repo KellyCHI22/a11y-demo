@@ -2,6 +2,9 @@ import { CheckIcon, ClockIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
 import { useTitle } from "../utils";
+import tshirt1 from "../assets/tshirt-1.png";
+import tshirt2 from "../assets/tshirt-2.png";
+import bottle1 from "../assets/bottle-1.png";
 
 const products = [
 	{
@@ -12,8 +15,7 @@ const products = [
 		color: "薄荷色",
 		size: "Medium",
 		inStock: true,
-		imageSrc:
-			"https://tailwindui.com/plus/img/ecommerce-images/checkout-page-03-product-04.jpg",
+		imageSrc: tshirt1,
 		imageAlt: "薄荷色藝術印花 T-shirt 正面",
 	},
 	{
@@ -25,8 +27,7 @@ const products = [
 		inStock: false,
 		leadTime: "2-3",
 		size: "Large",
-		imageSrc:
-			"https://tailwindui.com/plus/img/ecommerce-images/shopping-cart-page-01-product-02.jpg",
+		imageSrc: tshirt2,
 		imageAlt: "黑色基本款 T-shirt 正面",
 	},
 	{
@@ -36,8 +37,7 @@ const products = [
 		price: 300,
 		color: "米白色",
 		inStock: true,
-		imageSrc:
-			"https://tailwindui.com/plus/img/ecommerce-images/shopping-cart-page-01-product-03.jpg",
+		imageSrc: bottle1,
 		imageAlt: "米白色質感水壺，壺口周圍有黑色塗料設計",
 	},
 	// More products...
