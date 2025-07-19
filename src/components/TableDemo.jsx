@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import { useTitle } from "../utils";
+import { useTabParams, useTitle } from "../utils";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
 
 export default function TableDemo() {
 	useTitle("表格入門 - 範例 | A11y Demo");
+	const { currentTab, handleTabChange } = useTabParams("example-one");
 
 	return (
 		<div className="container mx-auto">
@@ -11,29 +12,30 @@ export default function TableDemo() {
 				<Link to="/">返回首頁</Link>
 			</div>
 			<Tabs
-				defaultValue="範例一"
+				value={currentTab}
+				onValueChange={handleTabChange}
 				className="mt-16 lg:my-16 lg:w-[800px] lg:mx-auto"
 			>
 				<TabsList className="my-5 grid w-full grid-cols-5 lg:mb-5">
-					<TabsTrigger value="範例一">範例一</TabsTrigger>
-					<TabsTrigger value="範例二">範例二</TabsTrigger>
-					<TabsTrigger value="錯誤範例一">錯誤範例一</TabsTrigger>
-					<TabsTrigger value="範例三">範例三</TabsTrigger>
-					<TabsTrigger value="錯誤範例二">錯誤範例二</TabsTrigger>
+					<TabsTrigger value="example-one">範例一</TabsTrigger>
+					<TabsTrigger value="example-two">範例二</TabsTrigger>
+					<TabsTrigger value="wrong-example-one">錯誤範例一</TabsTrigger>
+					<TabsTrigger value="example-three">範例三</TabsTrigger>
+					<TabsTrigger value="wrong-example-two">錯誤範例二</TabsTrigger>
 				</TabsList>
-				<TabsContent value="範例一">
+				<TabsContent value="example-one">
 					<TableExampleOne />
 				</TabsContent>
-				<TabsContent value="範例二">
+				<TabsContent value="example-two">
 					<TableExampleTwo />
 				</TabsContent>
-				<TabsContent value="錯誤範例一">
+				<TabsContent value="wrong-example-one">
 					<TableBadExampleOne />
 				</TabsContent>
-				<TabsContent value="範例三">
+				<TabsContent value="example-three">
 					<TableExampleThree />
 				</TabsContent>
-				<TabsContent value="錯誤範例二">
+				<TabsContent value="wrong-example-two">
 					<TableBadExampleTwo />
 				</TabsContent>
 			</Tabs>
