@@ -11,6 +11,7 @@ import Follow from "./components/Follow";
 import Heading from "./components/Heading";
 import Table from "./components/Table";
 import TableDemo from "./components/TableDemo";
+import TableDemoTwo from "./components/TableDemoTwo";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
 			<Route path="/heading" element={<Heading />} />
 			<Route path="/table" element={<Table />} />s
 			<Route path="/table-demo" element={<TableDemo />} />
+			<Route path="/table-demo-two" element={<TableDemoTwo />} />
 		</Route>
 	)
 );
