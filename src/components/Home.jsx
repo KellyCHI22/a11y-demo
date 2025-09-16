@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { useTitle } from "../utils";
 
@@ -8,7 +7,8 @@ const pages = [
 	{ to: "/follow", text: "追蹤/取消追蹤" },
 	{ to: "/heading", text: "定位點" },
 	{ to: "/table", text: "表格" },
-	{ to: "/table-demo", text: "表格入門 - 範例" },
+	{ to: "/table-demo", text: "表格入門 (上) - 範例" },
+	{ to: "/table-demo-two", text: "表格入門 (下) - 範例" },
 ];
 
 export default function Home() {

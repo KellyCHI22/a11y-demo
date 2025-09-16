@@ -3,7 +3,7 @@ import { useTabParams, useTitle } from "../utils";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
 
 export default function TableDemo() {
-	useTitle("表格入門 - 範例 | A11y Demo");
+	useTitle("表格入門 (上) - 範例 | A11y Demo");
 	const { currentTab, handleTabChange } = useTabParams("example-one");
 
 	return (
