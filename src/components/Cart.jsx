@@ -1,6 +1,7 @@
 import { CheckIcon, ClockIcon } from "@heroicons/react/20/solid";
 import { Link } from "react-router-dom";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./TabsHeadless";
+
 import { useTitle } from "../utils";
 import tshirt1 from "../assets/tshirt-1.png";
 import tshirt2 from "../assets/tshirt-2.png";
@@ -54,18 +55,15 @@ export default function Cart() {
 			<div className="absolute top-5 left-5 flex gap-5">
 				<Link to="/">返回首頁</Link>
 			</div>
-			<Tabs
-				defaultValue="original"
-				className="mt-16 lg:my-16 lg:w-[800px] lg:mx-auto"
-			>
+			<Tabs className="mt-16 lg:my-16 lg:w-[800px] lg:mx-auto">
 				<TabsList className="my-5 grid w-full grid-cols-2 lg:mb-5">
-					<TabsTrigger value="original">原始版</TabsTrigger>
-					<TabsTrigger value="improved">優化版</TabsTrigger>
+					<TabsTrigger>原始版</TabsTrigger>
+					<TabsTrigger>優化版</TabsTrigger>
 				</TabsList>
-				<TabsContent value="original">
+				<TabsContent>
 					<CartOriginal />
 				</TabsContent>
-				<TabsContent value="improved">
+				<TabsContent>
 					<CartImproved />
 				</TabsContent>
 			</Tabs>

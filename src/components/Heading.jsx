@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ChevronDown, ChevronRight } from "lucide-react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./TabsHeadless";
 import { useTitle } from "../utils";
 
 export default function Heading() {
@@ -11,18 +11,15 @@ export default function Heading() {
 			<div className="absolute top-5 left-5 flex gap-5">
 				<Link to="/">返回首頁</Link>
 			</div>
-			<Tabs
-				defaultValue="original"
-				className="mt-16 lg:my-16 lg:w-[1000px] lg:mx-auto"
-			>
+			<Tabs className="mt-16 lg:my-16 lg:w-[1000px] lg:mx-auto">
 				<TabsList className="my-5 grid w-full grid-cols-2 lg:mb-5">
-					<TabsTrigger value="original">原始版</TabsTrigger>
-					<TabsTrigger value="improved">優化版</TabsTrigger>
+					<TabsTrigger>原始版</TabsTrigger>
+					<TabsTrigger>優化版</TabsTrigger>
 				</TabsList>
-				<TabsContent value="original">
+				<TabsContent>
 					<HeadingOriginal />
 				</TabsContent>
-				<TabsContent value="improved">
+				<TabsContent>
 					<HeadingImproved />
 				</TabsContent>
 			</Tabs>

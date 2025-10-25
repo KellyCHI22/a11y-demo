@@ -4,7 +4,7 @@ import {
 	SwatchIcon,
 } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./TabsHeadless";
 import { useTitle } from "../utils";
 
 const features = [
@@ -39,15 +39,15 @@ export default function More() {
 				{/* 改回首頁 */}
 				<Link to="/">返回首頁</Link>
 			</div>
-			<Tabs defaultValue="original" className="mt-16 lg:my-16 lg:mx-20">
+			<Tabs className="mt-16 lg:my-16 lg:mx-20">
 				<TabsList className="my-5 grid w-full grid-cols-2 lg:mb-5">
-					<TabsTrigger value="original">原始版</TabsTrigger>
-					<TabsTrigger value="improved">優化版</TabsTrigger>
+					<TabsTrigger>原始版</TabsTrigger>
+					<TabsTrigger>優化版</TabsTrigger>
 				</TabsList>
-				<TabsContent value="original">
+				<TabsContent>
 					<MoreOriginal />
 				</TabsContent>
-				<TabsContent value="improved">
+				<TabsContent>
 					<MoreImproved />
 				</TabsContent>
 			</Tabs>

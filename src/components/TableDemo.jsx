@@ -1,43 +1,68 @@
 import { Link } from "react-router-dom";
 import { useTabParams, useTitle } from "../utils";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "./TabsHeadless";
 
 export default function TableDemo() {
 	useTitle("表格入門 (上) - 範例 | A11y Demo");
 	const { currentTab, handleTabChange } = useTabParams("example-one");
+
+	const tabs = [
+		{ key: "example-one", label: "範例一", content: <TableExampleOne /> },
+		{ key: "example-two", label: "範例二", content: <TableExampleTwo /> },
+		{
+			key: "wrong-example-one",
+			label: "錯誤範例一",
+			content: <TableBadExampleOne />,
+		},
+		{ key: "example-three", label: "範例三", content: <TableExampleThree /> },
+		{
+			key: "wrong-example-two",
+			label: "錯誤範例二",
+			content: <TableBadExampleTwo />,
+		},
+	];
+
+	const selectedIndex = tabs.findIndex((t) => t.key === currentTab) ?? 0;
 
 	return (
 		<div className="container mx-auto">
 			<div className="absolute top-5 left-5 flex gap-5">
 				<Link to="/">返回首頁</Link>
 			</div>
+
 			<Tabs
-				value={currentTab}
-				onValueChange={handleTabChange}
+				selectedIndex={selectedIndex}
+				onChange={(index) => handleTabChange(tabs[index].key)}
 				className="mt-16 lg:my-16 lg:w-[800px] lg:mx-auto"
 			>
-				<TabsList className="my-5 grid w-full grid-cols-5 lg:mb-5">
-					<TabsTrigger value="example-one">範例一</TabsTrigger>
-					<TabsTrigger value="example-two">範例二</TabsTrigger>
-					<TabsTrigger value="wrong-example-one">錯誤範例一</TabsTrigger>
-					<TabsTrigger value="example-three">範例三</TabsTrigger>
-					<TabsTrigger value="wrong-example-two">錯誤範例二</TabsTrigger>
+				{/* Tab Triggers */}
+				<TabsList className="my-5 grid w-full grid-cols-5 lg:mb-5 bg-zinc-700 p-1 rounded-md text-white">
+					{tabs.map((tab) => (
+						<TabsTrigger
+							key={tab.key}
+							className={({ selected }) =>
+								cn(
+									"inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium ring-offset-zinc-300 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+									selected
+										? "bg-[#242424] text-foreground shadow-sm"
+										: "text-white hover:bg-zinc-600"
+								)
+							}
+						>
+							{tab.label}
+						</TabsTrigger>
+					))}
 				</TabsList>
-				<TabsContent value="example-one">
-					<TableExampleOne />
-				</TabsContent>
-				<TabsContent value="example-two">
-					<TableExampleTwo />
-				</TabsContent>
-				<TabsContent value="wrong-example-one">
-					<TableBadExampleOne />
-				</TabsContent>
-				<TabsContent value="example-three">
-					<TableExampleThree />
-				</TabsContent>
-				<TabsContent value="wrong-example-two">
-					<TableBadExampleTwo />
-				</TabsContent>
+
+				{/* Tab Contents */}
+				{tabs.map((tab) => (
+					<TabsContent
+						key={tab.key}
+						className="ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+					>
+						{tab.content}
+					</TabsContent>
+				))}
 			</Tabs>
 		</div>
 	);
